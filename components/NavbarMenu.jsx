@@ -45,7 +45,6 @@ function NavbarMenu({open,anchorEl,handleMenu}) {
                 <Divider />
                 <MenuFoot>
                     <Button variant='contained' color='warning'> Sign In</Button>
-                    {/* <Button variant='outlined' color='warning' > SignUp</Button> */}
                 </MenuFoot>
             </Box>
         </Menu>
