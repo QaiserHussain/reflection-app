@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MdMenu } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setWidth } from '../store/slices/sidebar';
+import NavbarMenu from "./NavbarMenu";
 
 
 function Navbar() {
@@ -20,9 +21,16 @@ function Navbar() {
       dispatch(setWidth('block'))
     }
   }
+  const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleMenu = (e) => {
+        if (!anchorEl) {
+            setAnchorEl(e.currentTarget);
+        } else {
+            setAnchorEl(null);
+        }
+    }
  
-
-
   return (
     <Nav>
       <Box>
@@ -31,10 +39,11 @@ function Navbar() {
         </IconButton>
       </Box>
       <Box>
-        <IconButton size="small">
+        <IconButton size="small" onClick={handleMenu}>
           <Avatar />
         </IconButton>
       </Box>
+      <NavbarMenu open={open} anchorEl={anchorEl} handleMenu={handleMenu} />
     </Nav>
   )
 }
